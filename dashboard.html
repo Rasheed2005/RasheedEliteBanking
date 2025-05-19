@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EliteBank Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-container">
+    <h1>Welcome, </h1>
+    <p>Account Balance: <span id="balance">$5000.00</span></p>
+
+    <h3>Transfer Money</h3>
+    <form id="transferForm">
+      <input type="text" id="recipient" placeholder="Recipient Username" required />
+      <input type="number" id="amount" placeholder="Amount in $" required />
+      <button type="submit">Send Money</button>
+      <p id="transfer-message"></p>
+    </form>
+
+    <div class="dashboard-actions">
+      <button onclick="window.location.href='profile.html'">Profile</button>
+      <button onclick="logout()">Logout</button>
+      
+    </div>
+
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

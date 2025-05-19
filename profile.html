@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EliteBank Profile</title>
+  <link rel="stylesheet" href="profile.css" />
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-container">
+    <h2>Profile Settings</h2>
+
+<form><div class="profile-pic-container">
+  <img id="profile-image" src="default-profile.png" alt="Profile Picture" />
+  <input type="file" id="image-upload" accept="image/*" />
+</div></form>
+   
+    <form id="profileForm">
+     <br> <input type="text"  placeholder="Full Name" required /><br>
+      <br><input type="email"  placeholder="Email Address" required /><br>
+      <br><input type="text"  placeholder="Phone Number" required /><br>
+      <br><button type="submit">Update Profile</button><br>
+      <p id="profile-message"></p>
+    </form>
+
+    <button onclick="window.location.href='dashboard.html'" style="margin-top: 1em;">Back to Dashboard</button>
+  </div>
+ 
+  <script>
+    // Pre-fill with stored info (if any)
+    document.getElementById("profile-name").value = localStorage.getItem("profileName") ||"rasheed" ;<br>
+    document.getElementById("profile-email").value = localStorage.getItem("profileEmail") || "example@gmail.com";<br>
+    document.getElementById("profile-phone").value = localStorage.getItem("profilePhone") || "+233";<br>
+
+    // Save updated profile
+    document.getElementById("profileForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      localStorage.setItem("profileName", document.getElementById("profile-name").value);
+      localStorage.setItem("profileEmail", document.getElementById("profile-email").value);
+      localStorage.setItem("profilePhone", document.getElementById("profile-phone").value);
+
+      document.getElementById("profile-message").textContent = "Profile updated successfully!";
+      document.getElementById("profile-message").style.color = "#b2ffb2";
+    });
+  </script>
+</body>
+</html>
